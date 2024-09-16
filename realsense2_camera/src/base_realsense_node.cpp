@@ -590,7 +590,7 @@ void BaseRealSenseNode::frame_callback(rs2::frame frame)
             {
                 if (sent_depth_frame) continue;
                 sent_depth_frame = true;
-                if (_align_depth_filter->is_enabled())
+                if (_align_depth_filter->is_enabled() && frameset.get_color_frame())
                 {
                     publishFrame(f, t, COLOR,
                             _depth_aligned_image,
